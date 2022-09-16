@@ -1,7 +1,7 @@
 // bootstrap 變數
 // @import './variable';: #00d3be!default;
-$primary: rgb(255, 138, 0)!default; 
-$secondary: #45C7BF !default;
+$primary: #0069AA!default; 
+$secondary: #1CB4A1 !default;
 $success: #94D8A4 !default;
 $info: #369bfd !default;
 $warning: #ffd22c !default;
@@ -9,8 +9,8 @@ $danger: #fd3635 !default;
 $light: #C4C4C4 !default;
 $dark: #000000 !default;
 $gold: #D8A272;
-$primary-color: #FF8A00 !important;
-$secondary-color: #45C7BF !important;
+$primary-color: #0069AA !important;
+$secondary-color: #1CB4A1 !important;
 
 // 蓋掉 bootstrap預設字體樣式
 $font-family-sans-serif:'Roboto', 'Noto Sans TC', sans-serif, Arial, "微軟正黑體", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -39,14 +39,13 @@ $lake-green-dark: #18ACC4;
 $yellow: #FABA14;
 
 /* 主色應用 */
-$primary-color-light: rgba(248, 245, 241, 1) !default;
-$primary-color-30: rgba(255, 138, 0, 0.3) !default;
-$primary-color-20: rgba(255, 138, 0, 0.2) !default;
+$primary-color-light: #74A0CD !default;
+$primary-color-light-40: rgba(116, 160, 205, .5) !default;
+$primary-color-light-50: rgba(116, 160, 205, .4) !default;
+$primary-color-light-10: rgba(116, 160, 205, .1) !default;
 
 /* 輔色應用 */
-$secondary-color-light: rgb(185, 59, 179, 1) !important;
-$secondary-color-30: rgba(145, 46, 140, 0.3) !important;
-$secondary-color-20: rgba(145, 46, 140, 0.2) !important;
+$primary-color-light: rgba(28, 180, 161, .5) !default;
 
 $gold-gradient: linear-gradient(to right, #98692F 0%,#AC7F30 8%, #D6A232 20%, #F4ECA7 40%, #CF9D30 45%, #A6722B 60%, #935926 70%, #E3B034 90%, #F2CF73 100%);
 $gold-gradient-v2: linear-gradient(to right, #F9DE84 0%, #AC773A 33.3%, #F9DE84 66.6%, #AC773A 100%);
@@ -54,9 +53,10 @@ $gold-gradient-v2: linear-gradient(to right, #F9DE84 0%, #AC773A 33.3%, #F9DE84 
 /* 漸層應用 */
 $primary-gradient: linear-gradient(to right, rgba(255, 214, 0, 1) 0%, rgba(69, 199, 191, 1) 100%);
 $primary-gradient-reverse: linear-gradient(to left, rgba(255, 214, 0, 1) 0%, rgba(69, 199, 191, 1) 100%);
-$primary-gradient-v: linear-gradient(to bottom, #F9DE84 0%, #AC773A 33.3%, #F9DE84 66.6%, #AC773A 100%);
-$secondary-gradient: linear-gradient(-45deg, #922D8D, #D7262E);
+$primary-gradient-v: linear-gradient(to bottom, #133469 0%, #0069AA 100%);
 
+$secondary-gradient-v: linear-gradient(to bottom, #1CB4A1, #0069AA);
+$secondary-gradient-v-hover: linear-gradient(330deg, #1CB4A1, #0069AA);
 /*  boostrap 參數調整 */
 
 // Grid breakpoints

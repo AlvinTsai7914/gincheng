@@ -6,9 +6,12 @@ html {
   * {
     margin: 0;
     padding: 0;
-    // list-style-type: none;
+    list-style-type: none;
     outline: transparent;
     box-sizing: border-box;
+  }
+  &.-locked {
+    overflow: hidden;
   }
 }
 
@@ -33,7 +36,6 @@ img,
 a {
   display: inline-block;
   width: fit-content;
-  color: $main-dark;
   // @extend %transition-cubic;
   // background: $primary-gradient;
   // background-clip: text;

@@ -109,7 +109,11 @@
 			.holder {
 				padding-bottom: 100vh
 			}
-
+			iframe {
+				@include size(100%);
+				@include center;
+				object-fit: cover;
+			}
 			video {
 				@include size(100%);
 				@include center;
@@ -479,15 +483,14 @@ section.hero-slider .swiper-container-cards {
 section.about {
 	// border: 2px solid red;
 	background-color: white;
-	margin-bottom: 200px;
+	// margin-bottom: 200px;
 	position: relative;
-
+	padding-top: 200px;
 	.content_wrapper {
 		display: flex;
 		flex-wrap: nowrap;
-		margin: 0 auto 120px;
+		margin: 0 auto;
 		padding-top: 80px;
-
 		&.fluit {
 			// border: 2px solid grey;
 		}
@@ -532,10 +535,12 @@ section.about {
 			h3 {
 				margin-bottom: 12px;
 				opacity: 0;
+				transition: all 0.2s ease;
 			}
 			p {
 				opacity: 0;
-				animation-delay: 0.5s;
+				transition: all 0.2s ease;
+				animation-delay: 0.4s;
 			}
 			&.purpose {
 				top: 60px;
@@ -558,23 +563,90 @@ section.about {
 		}
 	}
 
-	&::before {
-		content: "";
+	// &::before {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: -100px;
+	// 	left: 0;
+	// 	background: center / cover url(../img/CSR.png);
+	// 	@include size(676px, 1211px);
+	// }
+
+
+	.animate_text_csr {
+		@include size(40%, auto);
 		position: absolute;
-		top: -100px;
 		left: 0;
-		background: center / cover url(../img/CSR.png);
-		@include size(676px, 1211px);
+		top: 0;
+		opacity: 0.6;
+		.svg {
+			@include size(100%, auto);
+			.line_c {
+				stroke-dasharray: 1100;
+				stroke-dashoffset: 1100;
+			}
+			
+			.line_s {
+				stroke-dasharray: 910;
+				stroke-dashoffset: 910;
+			}
+			
+			.line_r_1 {
+				stroke-dasharray: 1100;
+				stroke-dashoffset: 1100;
+			}
+			
+			.line_r_2 {
+				stroke-dasharray: 700;
+				stroke-dashoffset: 700;
+			}
+			
+		}
 	}
 
-	&::after {
-		content: "";
+	
+	.animate_text_esg {
+		@include size(40%, auto);
 		position: absolute;
-		top: 56%;
 		right: 0;
-		background: center / cover url(../img/ESG.png);
-		@include size(706px, 1197px);
+		bottom: -40%;
+		opacity: 0.6;
+		.svg {
+			@include size(100%, auto);
+			.line_e_1 {
+				stroke-dasharray: 500;
+				stroke-dashoffset: 500;
+			}
+			.line_e_2 {
+				stroke-dasharray: 500;
+				stroke-dashoffset: 500;
+			}
+			.line_e_3 {
+				stroke-dasharray: 500;
+				stroke-dashoffset: 500;
+			}			
+			.line_e_4 {
+				stroke-dasharray: 500;
+				stroke-dashoffset: 500;
+			}
+			.line_s {
+				stroke-dasharray: 910;
+				stroke-dashoffset: 910;
+			}
+			.line_g {
+				stroke-dasharray: 1270;
+				stroke-dashoffset: 1270;
+			}
+		}
 	}
+	// &::after {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 56%;
+	// 	right: 0;
+	// 	background: center / cover url(../img/ESG.png);
+	// 	@include size(706px, 1197px);
+	// }
 
 	@include media-breakpoint-down(sm) {
 		&::before {
@@ -592,6 +664,7 @@ section.about {
 				margin-right: 16px;
 			}
 		}
+		color: white;
 	}
 	@include media-breakpoint-down(md) {
 		padding-top: 80px;
@@ -645,226 +718,13 @@ section.about {
 section.process {
 	// border: 2px solid black;
 	margin-bottom: 120px;
-	padding-top: 60px;
+	// padding-top: 60px;
 	position: relative;
 
 	.container {
 		display: flex;
 		flex-wrap: nowrap;
 		z-index: 1;
-	}
-
-	.left,
-	.right {
-		flex: 0 0 50%;
-		max-width: 50%;
-		@include media-breakpoint-down(sm) {
-			display: none;
-		}
-	}
-	@media (max-width: 1440px) {
-		.left {
-			flex: 0 0 40%;
-			max-width: 40%;
-		}
-		.right {
-			flex: 0 0 60%;
-			max-width: 60%;
-		}
-	}
-	@include media-breakpoint-down(lg) {
-		.left,
-		.right {
-			flex: 0 0 50%;
-			max-width: 50%;
-		}
-	}
-
-	.sticky_nav {
-		@include size(100%, fit-content);
-		position: relative;
-
-		.holder {
-			padding-bottom: 100%;
-		}
-
-		img {
-
-			// display: none
-			&.item_img {
-				animation: fadeInOut 0.8s linear;
-
-				@keyframes fadeInOut {
-					0% {
-						opacity: 0;
-					}
-
-					50% {
-						opacity: 0.5;
-					}
-
-					100% {
-						opacity: 1;
-					}
-				}
-			}
-
-		}
-
-		.anch_list {
-			@include size(100%);
-			@include center;
-
-			a {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				@include size(35%);
-				transform: translate(-50%, -50%);
-
-				&:nth-child(1) {
-					top: 18%;
-				}
-
-				&:nth-child(2) {
-					top: 46%;
-					left: 84%;
-				}
-
-				&:nth-child(3) {
-					top: 83%;
-					left: 72%;
-				}
-
-				&:nth-child(4) {
-					top: 80%;
-					left: 30%;
-				}
-
-				&:nth-child(5) {
-					top: 44%;
-					left: 17%;
-				}
-			}
-		}
-
-	}
-
-	.right {
-		// padding-top: 115px;
-		position: relative;
-
-		// border: 2px solid green;
-		.section_title {
-			&__wrapper {
-				position: relative;
-
-				&::before {
-					content: "";
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					@include size(100%, 1px);
-					background-color: $primary-color-light-50;
-				}
-			}
-
-			@include size(fit-content, auto);
-			margin: 0 0 0 auto;
-
-			h2 {
-				display: inline-block;
-				margin: 0 0 0 auto;
-			}
-		}
-
-		.content__wrapper {
-
-			// height: 200vh;
-			.pin_wrapper {
-				@include size(100%, 450px);
-			}
-
-			.content {
-				padding-top: 56px;
-				padding-left: 144px;
-				margin-bottom: 200px;
-				opacity: 0;
-				transition: all 0.3s ease;
-
-				h3 {
-					@include font-size(48px);
-					margin-bottom: 16px;
-					position: relative;
-					&::before {
-						content: "";
-						@include v-center;
-						left: -68px;
-						@include size(60px);
-					}
-				}
-				&.process1 h3::before {
-					background: center / cover url(../img/icon/light.png)
-				}
-				&.process2 h3::before {
-					background: center / cover url(../img/icon/eye.png)
-				}
-				&.process3 h3::before {
-					background: center / cover url(../img/icon/chess_king.png)
-				}
-				&.process4 h3::before {
-					background: center / cover url(../img/icon/chart.png)
-				}
-				&.process5 h3::before {
-					background: center / cover url(../img/icon/award.png)
-				}
-				ul {
-					li {
-						padding-left: 12px;
-						@include font-size(24px);
-						position: relative;
-
-						&::before {
-							content: "";
-							position: absolute;
-							top: 12px;
-							left: 0;
-							@include size(4px, 12px);
-							border-radius: 4px;
-							background-color: $secondary;
-						}
-					}
-				}
-
-				&.active {
-					opacity: 1;
-				}
-
-			}
-		}
-
-		@media (max-width: 1440px) {
-			.content__wrapper {
-				.pin_wrapper {
-					@include size(100%, 600px);
-				}
-				.content {
-					padding-top: 56px;
-					padding-left: 80px;
-					margin-bottom: 200px;
-					h3 {
-						@include font-size(36px);
-						margin-bottom: 16px;
-					}
-	
-					ul {
-						li {
-							@include font-size(20px);
-						}
-					}
-				}
-			}
-		}
 	}
 
 	.process_m {
@@ -997,25 +857,25 @@ section.process {
 			
 		}
 	}
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: center / cover url(../img/CSR.png);
-		@include size(676px, 1211px);
-		z-index: -1;
-	}
+	// &::before {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	background: center / cover url(../img/CSR.png);
+	// 	@include size(676px, 1211px);
+	// 	z-index: -1;
+	// }
 
-	&::after {
-		content: "";
-		position: absolute;
-		top: 56%;
-		right: 0;
-		background: center / cover url(../img/ESG.png);
-		@include size(706px, 1197px);
-		z-index: -1;
-	}
+	// &::after {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 56%;
+	// 	right: 0;
+	// 	background: center / cover url(../img/ESG.png);
+	// 	@include size(706px, 1197px);
+	// 	z-index: -1;
+	// }
 	
 	@include media-breakpoint-down(sm) {
 		&::before,
@@ -1029,7 +889,10 @@ section.process {
 服務項目 .service
 ---------------------------------------------*/
 section.service {
+	// padding-top: 100px;
 	margin-bottom: 170px;
+	background-color: white;
+	position: relative;
 	@include media-breakpoint-down(md) {
 		margin-bottom: 60px;
 	}
@@ -1166,6 +1029,12 @@ section.service {
 		}
 	}
 
+	&::before {
+		content: "";
+		@include center;
+		@include size(100%);
+		background-color: white;
+	}
 }
 
 /*-------------------------------------------
@@ -1174,9 +1043,12 @@ section.service {
 section.success_stories {
 	@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 	position: relative;
+	margin-top: 170px;
 	margin-bottom: 150px;
+
 	.container {
 		position: relative;
+		z-index: 2;
 	}
 	.section_title_wrapper {
 		position: absolute;
@@ -1408,7 +1280,12 @@ section.success_stories {
 		// }
 		
 	}
-
+	// &::before {
+	// 	content: "";
+	// 	@include center;
+	// 	@include size(100%);
+	// 	background-color: white;
+	// }
 	&::after {
 		content: "";
 		position: absolute;
@@ -1422,6 +1299,7 @@ section.success_stories {
 			@include size(80%, 70%);
 		}
 	}
+
 }
 
 /*-------------------------------------------

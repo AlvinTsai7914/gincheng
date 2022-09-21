@@ -84,94 +84,16 @@ $(function () {
     swiper2.controller.control = swiper;
 })
 
-// sticky nav
+// process
 $(function () {
-    let $stickyNavHeight = $(".process .sticky_nav").height(),
-        endPoint;
-    // console.log($stickyNavHeight, endPoint)
-    let start 
-    if ($(window).height() > 1000) {
-        start = "0px 30%";
-        endPoint = $stickyNavHeight ;
-    } else {
-        start = "0px 18%";
-        endPoint = $stickyNavHeight * 0.95;
-    }
-    console.log(start)
-    ScrollTrigger.create({
-        trigger: '.sticky_nav',
-        start,
-        endTrigger: '.content.process5',
-        end: `center 50%`,
-        pin: '.sticky_nav',
-        // pinSpacing: false,
-        // markers: true
-    })
-    ScrollTrigger.create({
-        trigger: '.process .section_title__wrapper',
-        start,
-        endTrigger: '.content.process5',
-        end: `center 50%`,
-        pin: '.process .section_title__wrapper',
-        pinSpacing: false,
-        // markers: true
-    })
-    $(window).resize(function () {
-        $stickyNavHeight = $(".process .sticky_nav").height()
-        endPoint = $stickyNavHeight * .9
-        // console.log($stickyNavHeight, endPoint)
-        // ScrollTrigger.refresh()
+    $('#accordion').collapse({
+        toggle: false
     })
 
-    let options 
-    if ($(window).height() > 1000) {
-        options = {
-            root: null,
-            rootMargin: "-40% 0px -20% 0px",
-            threshold: [0]
-        }
-    } else {
-        options = {
-            root: null,
-            rootMargin: "-55% 0px -30% 0px",
-            threshold: [0]
-        }
-    }
-    // 條件達成做什麼：符合設定條件下，目標進入或離開 viewport 時觸發此 callback 函式
-    let callback = (entries, observer) => {
-        // entries 能拿到所有目標元素進出(intersect)變化的資訊
-        entries.forEach(e => {
-            let target = e.target,
-                targetId = e.target.id,
-                targetContentIndex = e.target.dataset.contentIndex,
-                isIntersecting = e.isIntersecting;
-            if (isIntersecting && targetContentIndex !== 0) {
-                // console.log(targetContentIndex)
-                // $(".sticky_nav .anim").removeClass("anim")
-                // $(".sticky_nav img.item_img").attr("src", `img/process${targetContentIndex}.png`)
-                // setTimeout(function() {
-                //     $(".sticky_nav img.item_img").addClass("anim")
-                // })
-                $(target).addClass("active")
-                $(`.sticky_nav .item_img`).addClass("d-none")
-                $(`.sticky_nav .process${targetContentIndex}`).removeClass("d-none")
-            } else if (!isIntersecting) {
-                $(target).removeClass("active")
-            }
-        })
-    }
-
-    // 製作鈴鐺：建立一個 intersection observer，帶入相關設定資訊
-    let observer = new IntersectionObserver(callback, options)
-
-    // 設定觀察對象：告訴 observer 要觀察哪個目標元素
-    let observeTargets = $(".content")
-    for (const target of observeTargets) {
-        observer.observe(target);
-    }
-
+    $(".process_m h3").on("click", function() {
+        $(this).parent(".collapse_item").toggleClass("-collapsed")
+    })
 })
-
 $(function() {
     const animateCSS = (element, animation, prefix = 'animate__') =>
         // We create a Promise and return it
@@ -272,13 +194,3 @@ $(function () {
     });
 })
 
-// process
-$(function () {
-    $('#accordion').collapse({
-        toggle: false
-    })
-
-    $(".process_m h3").on("click", function() {
-        $(this).parent(".collapse_item").toggleClass("-collapsed")
-    })
-})

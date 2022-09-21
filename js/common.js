@@ -38,14 +38,14 @@ function debounce(func, delay = 250) {
 
 $(function() {
     $('header a[href*="#"]:not([href="#"])').click(function () {
-
+ 
         if (
             location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
             location.hostname == this.hostname &&
             this.hash.slice(1) != 'top'
         ) {
             let target = $(this.hash);
-
+            console.log(target)
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
             if (target.length) {
@@ -59,38 +59,7 @@ $(function() {
             }
         }
     });
-    $('.process a[href*="#"]:not([href="#"])').click(function () {
 
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-            location.hostname == this.hostname &&
-            this.hash.slice(1) != 'top'
-        ) {
-            let $windowW = $(window).width(),
-                $windowH = $(window).height(),
-                $windowHHalf = $windowH / 3,
-                target = $(this.hash),
-                stopPoint;
-
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if ($windowW > 992) {
-                stopPoint = target.offset().top - $windowHHalf;
-            } else if ($windowW < 992) {
-                stopPoint = target.offset().top - $windowHHalf - 50;
-            }
-           
-
-            if (target.length) {
-                $('html, body').animate(
-                    {
-                        scrollTop: stopPoint,
-                    },
-                    1000
-                );
-                return false;
-            }
-        }
-    });
 })
 
 $(function() {
